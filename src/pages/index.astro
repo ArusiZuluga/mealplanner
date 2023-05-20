@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro'
+import MagicText from '../components/MagicText.astro'
+import CategoryCard from '../components/CategoryCard.astro'
+---
+
+<Layout title="Meal Planner - Plan your meals">
+  <MagicText>Nutri MealPlanner</MagicText>
+  <p class="instructions">
+    The MealPlanner app is designed for <strong>easy</strong> and <strong>healthy</strong> dishes. Divided into different categories, you can use this meal planner to compile an entire weekly schedule and adjust your shopping accordingly.
+  </p>
+  <ul role="list" class="link-card-grid">
+    <CategoryCard
+    href="/breakfast"
+    title="🥞 Breakfast"
+    body="Start your day with the perfect breakfast and you will have the most satisfying day!"
+    />
+    <CategoryCard
+    href="/lunch"
+    title="🥪 Lunch"
+    body="Swallows, rice & chicken/fish, fruit juice, tubers etc."
+    />
+    <CategoryCard
+      href="/dinner"
+      title="🍽️ Dinner"
+      body="Healthy dinner options to have a better sleep and agile morning"
+    />
+    <CategoryCard
+      href="/sidedish"
+      title="🥗 Side Dish"
+      body="Complementary to the meal or as a stand alone dish."
+    />
+    <CategoryCard
+      href="/snack"
+      title="🍪 Snack"
+      body="Okpa, Abacha, Nunu, Homemade bread and biscuits, chips - and more healthy Afro snacks!"
+    />
+    <CategoryCard
+      href="/other"
+      title="🍨 Other"
+      body="Roasted yam/cocoyam/plantain/potato and native sauce, Nkwobi, Peppersoup etc."
+    />
+  </ul>
+</Layout>
+
+<style>
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+
+	.instructions {
+    font-size: large;
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+    color: var(--neutral-900);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(34ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>

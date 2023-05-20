@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro'
+import RecipeCard from '../components/RecipeCard.astro'
+
+const allSnacks = await Astro.glob('./snack/*.md')
+---
+
+<Layout title="Snack">
+  <h1>🍪 Snack</h1>
+  <p class="size-20">Okpa, Abacha, Nunu, Homemade bread and biscuits, chips - and more healthy Afro snacks!</p>
+  <ul class="recipes">
+    {allSnacks.map((snack) => (
+      <RecipeCard href={snack.url}>
+        {snack.frontmatter.title}
+      </RecipeCard>
+    ))}
+  </ul>
+</Layout>

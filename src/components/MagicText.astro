@@ -1,0 +1,50 @@
+<h1 class="mb-4">
+  <span class="magic-text text-lg uppercase font-bold">
+    <slot />
+  </span>
+</h1>
+
+<style lang="scss">
+  @use '../assets/scss/base/size' as *;
+  @use '../assets/scss/base/breakpoint' as *;
+
+  h1 {
+    text-align: center;
+  }
+
+  h1 .magic-text {
+    text-align: center;
+    text-transform: uppercase;
+    @include size-48;
+
+    @include breakpoint(medium) {
+      @include size-72;
+    }
+  }
+
+  .magic-text {
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(
+      to right,
+      rgb(123, 31, 162),
+      rgb(103, 58, 183),
+      rgb(244, 143, 177),
+      rgb(123, 31, 162)
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    font-family: var(--font-family-special);
+  }
+
+  @keyframes background-pan {
+    from {
+      background-position: 0% center;
+    }
+    
+    to {
+      background-position: -200% center;
+    }
+  }
+</style>

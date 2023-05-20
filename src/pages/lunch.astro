@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro'
+import RecipeCard from '../components/RecipeCard.astro'
+
+const allLunches = await Astro.glob('./lunch/*.md')
+---
+
+<Layout title="Lunch">
+  <h1>🥪 Lunch</h1>
+  <p class="size-20">Swallows, rice & chicken/fish, fruit juice, tubers etc.</p>
+  <ul class="recipes">
+    {allLunches.map((lunch) => (
+      <RecipeCard href={lunch.url}>
+        {lunch.frontmatter.title}
+      </RecipeCard>
+    ))}
+  </ul>
+</Layout>

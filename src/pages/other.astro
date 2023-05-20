@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro'
+import RecipeCard from '../components/RecipeCard.astro'
+
+const allOthers = await Astro.glob('./other/*.md')
+---
+
+<Layout title="Other dishes">
+  <h1>🍨 Other dishes</h1>
+  <p class="size-20">Roasted yam/cocoyam/plantain/potato and native sauce, Nkwobi, Peppersoup etc.</p>
+  <ul class="recipes">
+    {allOthers.map((other) => (
+      <RecipeCard href={other.url}>
+        {other.frontmatter.title}
+      </RecipeCard>
+    ))}
+  </ul>
+</Layout>

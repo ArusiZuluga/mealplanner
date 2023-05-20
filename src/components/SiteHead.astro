@@ -1,0 +1,194 @@
+---
+import '../assets/scss/globals.scss'
+
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+
+<style lang="scss" is:global>
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+		--accent-gradient-dark: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, var(--neutral-900) 60%);
+    --background: var(--neutral-100);
+    --font-color: var(--neutral-900);
+	}
+
+  .darkmode {
+    --background: #161618;
+    --font-color: var(--neutral-100);
+  }
+
+  body {
+    background-color: var(--background-color);
+  }
+
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: #F6F6F6;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+
+      body * {
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+      }
+    }
+	}
+
+  header,
+	main,
+  footer {
+    margin: 0 auto;
+		padding: 1.5rem;
+		width: clamp(50vw, 800px, 100%);
+	}
+
+  // sticky footer on low content pages
+  html,
+  body {
+    height: 100%;
+    overflow-x: hidden;
+
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    footer {
+      flex-shrink: 0;
+    }
+  }
+  
+	h1 {
+		font-size: 4rem;
+		font-weight: 800;
+		margin: 0;
+	}
+</style>
+
+<style is:global>
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+
+  blockquote,
+  body,
+  figure,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  li,
+  ol,
+  p,
+  pre,
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul:where([class]) {
+    list-style: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    color: inherit;
+    letter-spacing: inherit;
+    font: inherit;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+  }
+
+  fieldset {
+    padding: 0;
+    border: none;
+  }
+
+  legend {
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  textarea {
+    border: 1px solid gray;
+  }
+
+  button {
+    padding: 0.75em 1em;
+    border-radius: 0;
+    background-color: transparent;
+    line-height: 1;
+  }
+
+  button * {
+    pointer-events: none;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  embed,
+  iframe,
+  img,
+  object,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  noscript {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  [tabindex="-1"] {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+</style>
